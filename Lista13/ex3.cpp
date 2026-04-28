@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-float x=0,w=0,fahn;
+int x=0,w=0,fahn;
 int main()
 {
     cin>> x >> w;
