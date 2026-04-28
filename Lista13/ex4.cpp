@@ -15,12 +15,12 @@ int main()
         if(a >0)
         {
             soma += a;
-            somaHarmonica += n / (1.0 / a);
+            somaHarmonica +=1.0/a;
         }   
     }
     
     mediaAritmetica = soma / n;
-    mediaHarmonica = somaHarmonica / n;
+    mediaHarmonica = n/ somaHarmonica ;
 
     cout << "Média Aritmetica: " << mediaAritmetica << endl;            
     cout << "Média Harmonica: " << mediaHarmonica << endl;
