@@ -4,24 +4,29 @@ using namespace std;
 
 int main()
 {
-    int n =0,menor=n,maior=n;
-    cout << "Digite um número, ou 0 para sair: ";
-    cin >> n;
+    int n =0,i=0,j,menor=0,maior=0;
 
-    while (n != 0)
+    cin >> n;
+    while (i < n)
     {
-        if (n < menor)
+        cin >> j;
+        i++;
+        if(i == 1)
         {
-            menor = n;
+            menor = j;
+            maior = j;
         }
-        if (n > maior)
+
+        if (j< menor)
         {
-            maior = n;
+            menor = j;
         }
-        cout << "Digite um número, ou 0 para sair: ";
-        cin >> n;
+        if (j > maior)
+        {
+            maior = j;
+        }
     }
-    cout << menor - maior << endl;
+    cout << maior - menor << endl;
 
     
 }
