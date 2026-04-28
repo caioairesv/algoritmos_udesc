@@ -1,31 +1,30 @@
 #include<bits/stdc++.h>
-#include <iostream>
 using namespace std;
 
-int num,den,n;
-double resultado,soma1 =0,soma2 =0;
+int n;
+float resultado,soma1 =1.0/2.0,soma2 =0.0,num=1.0,den=2.0;
+
 int main()
 {
 
 cin >> n;
-n +=1;
-for (int i =1; i <n ; i++ )
+for (int i =1; i <= n ; i++ )
 {
+    soma1 += num/den;
     num +=2;
     den+= 3;
 
-    soma1 += num/den;
 }
 
-for (int j =1; j < n; j++)
-{
-    den =1;
-    if (j % 2 !=0)
+for (int j =1; j <= n; j++)
+{   
+    num =1.0;
+    if (j % 2 ==0)
     {
-        den*(-1);
+        num = -num;
     }
 
-    soma2+= j/den;    
+    soma2+=num/j;    
 }
-cout << "Soma do primeiro: " << soma1 << "\nSoma do segundo: "<< soma2;
+cout << "Soma dos primeiro: " << fixed<< setprecision (1) << soma1 << "\nSoma do segundo: "<< soma2;
 } 
