@@ -9,9 +9,9 @@ int main() {
     scanf("%i", &x);
 
     if (x == 0 ) {
-        printf("O numero é zero");
+        printf("O numero é zero -x = %i",x);
     }else {
-        printf("Não é zero");
+        printf("Não é zero-x = %i",x);
     }
-
+    return 0;
 }
