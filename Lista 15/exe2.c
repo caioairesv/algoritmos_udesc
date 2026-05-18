@@ -1,6 +1,7 @@
 #include <stdio.h>
-
+#include <locale.h>
 int main() {
+    setlocale(LC_ALL, "Portugues");
 
     double numerador = 4.0, soma = 0.0, somaB = 3.0;
     int n, sinal = 1;
