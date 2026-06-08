@@ -1,32 +1,53 @@
 #include <stdio.h>
 
 int main() {
-    float A[10], B[10];
-    int i;
+    float A[3][4], B[4][5], P[3][5];
+    int i, j, k;
 
-    printf("=== Exercicio 1: Vetores A e B ===\n\n");
+    printf("=== Exercicio 5: Multiplicacao de Matrizes ===\n\n");
 
-    printf("Digite os 10 elementos do vetor A:\n");
-    for (i = 0; i < 10; i++) {
-        printf("A[%d]: ", i);
-        scanf("%f", &A[i]);
+    printf("Digite os valores da matriz A (3x4):\n");
+    for (i = 0; i < 3; i++)
+        for (j = 0; j < 4; j++) {
+            printf("A[%d][%d]: ", i, j);
+            scanf("%f", &A[i][j]);
+        }
+
+    printf("\nDigite os valores da matriz B (4x5):\n");
+    for (i = 0; i < 4; i++)
+        for (j = 0; j < 5; j++) {
+            printf("B[%d][%d]: ", i, j);
+            scanf("%f", &B[i][j]);
+        }
+
+    /* Calcula o produto P = A x B */
+    for (i = 0; i < 3; i++)
+        for (j = 0; j < 5; j++) {
+            P[i][j] = 0;
+            for (k = 0; k < 4; k++)
+                P[i][j] += A[i][k] * B[k][j];
+        }
+
+    printf("\nMATRIZ A (3x4):\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 4; j++)
+            printf("%6.1f ", A[i][j]);
+        printf("\n");
     }
 
-    for (i = 0; i < 10; i++) {
-        if (i % 2 == 0)
-            B[i] = A[i] / 2.0;
-        else
-            B[i] = A[i] * 3.0;
+    printf("\nMATRIZ B (4x5):\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 5; j++)
+            printf("%6.1f ", B[i][j]);
+        printf("\n");
     }
 
-    printf("\nVETOR A: ");
-    for (i = 0; i < 10; i++)
-        printf("%6.1f ", A[i]);
+    printf("\nMATRIZ PRODUTO P = A x B (3x5):\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 5; j++)
+            printf("%8.1f ", P[i][j]);
+        printf("\n");
+    }
 
-    printf("\nVETOR B: ");
-    for (i = 0; i < 10; i++)
-        printf("%6.1f ", B[i]);
-
-    printf("\n");
     return 0;
 }

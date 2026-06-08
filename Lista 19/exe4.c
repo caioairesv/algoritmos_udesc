@@ -1,53 +1,46 @@
 #include <stdio.h>
 
 int main() {
-    float A[3][4], B[4][5], P[3][5];
-    int i, j, k;
+    float M[5][4], somaLinhas[5], somaColunas[4];
+    int i, j;
 
-    printf("=== Exercicio 5: Multiplicacao de Matrizes ===\n\n");
+    printf("=== Exercicio 4: Matriz 5x4 com Somas ===\n\n");
 
-    printf("Digite os valores da matriz A (3x4):\n");
-    for (i = 0; i < 3; i++)
+    printf("Digite os valores da matriz 5x4:\n");
+    for (i = 0; i < 5; i++)
         for (j = 0; j < 4; j++) {
-            printf("A[%d][%d]: ", i, j);
-            scanf("%f", &A[i][j]);
+            printf("M[%d][%d]: ", i, j);
+            scanf("%f", &M[i][j]);
         }
 
-    printf("\nDigite os valores da matriz B (4x5):\n");
-    for (i = 0; i < 4; i++)
-        for (j = 0; j < 5; j++) {
-            printf("B[%d][%d]: ", i, j);
-            scanf("%f", &B[i][j]);
-        }
-
-    /* Calcula o produto P = A x B */
-    for (i = 0; i < 3; i++)
-        for (j = 0; j < 5; j++) {
-            P[i][j] = 0;
-            for (k = 0; k < 4; k++)
-                P[i][j] += A[i][k] * B[k][j];
-        }
-
-    printf("\nMATRIZ A (3x4):\n");
-    for (i = 0; i < 3; i++) {
+    for (i = 0; i < 5; i++) {
+        somaLinhas[i] = 0;
         for (j = 0; j < 4; j++)
-            printf("%6.1f ", A[i][j]);
-        printf("\n");
+            somaLinhas[i] += M[i][j];
     }
 
-    printf("\nMATRIZ B (4x5):\n");
-    for (i = 0; i < 4; i++) {
-        for (j = 0; j < 5; j++)
-            printf("%6.1f ", B[i][j]);
-        printf("\n");
+    for (j = 0; j < 4; j++) {
+        somaColunas[j] = 0;
+        for (i = 0; i < 5; i++)
+            somaColunas[j] += M[i][j];
     }
 
-    printf("\nMATRIZ PRODUTO P = A x B (3x5):\n");
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 5; j++)
-            printf("%8.1f ", P[i][j]);
-        printf("\n");
+    printf("\nMATRIZ:\n");
+    printf("         Col0    Col1    Col2    Col3  | SomaLinha\n");
+    for (i = 0; i < 5; i++) {
+        printf("Linha%d: ", i);
+        for (j = 0; j < 4; j++)
+            printf("%6.1f  ", M[i][j]);
+        printf("| %.1f\n", somaLinhas[i]);
     }
+
+    printf("\nSOMA DAS COLUNAS: ");
+    for (j = 0; j < 4; j++)
+        printf("%6.1f  ", somaColunas[j]);
+
+    printf("\n\nSOMA DAS LINHAS:\n");
+    for (i = 0; i < 5; i++)
+        printf("Linha %d: %.1f\n", i, somaLinhas[i]);
 
     return 0;
 }
